@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    @foreach ($posts as $post)
+    @forelse ($posts as $post)
         <p>
             <h3><a href="{{ route('posts.show',['post' => $post->id]) }}">{{ $post->title }}</a></h3>
         </p>
@@ -13,5 +13,9 @@
             <input type="submit" value="Delete!" class="btn btn-danger">
 
         </form>
-    @endforeach
+
+        @empty
+            <p>No Blog Posts Yet!</p>
+
+    @endforelse
 @endsection
